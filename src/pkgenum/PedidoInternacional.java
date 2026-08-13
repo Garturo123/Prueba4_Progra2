@@ -1,8 +1,5 @@
 package pkgenum;
 
-/**
- * Pedido enviado fuera del país.
- */
 public class PedidoInternacional extends Pedido {
     private final double tarifaBase;
     private final String paisDestino;

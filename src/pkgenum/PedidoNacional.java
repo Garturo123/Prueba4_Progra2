@@ -1,8 +1,5 @@
 package pkgenum;
 
-/**
- * Pedido enviado dentro del país.
- */
 public class PedidoNacional extends Pedido {
     private final double tarifaBase;
     private final double tarifaPorKilometro;
