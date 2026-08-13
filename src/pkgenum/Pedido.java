@@ -4,8 +4,6 @@
  */
 package pkgenum;
 
-import static pkgenum.EstadoPedido.PENDIENTE;
-
 /**
  *
  * @author gaat1
@@ -16,11 +14,11 @@ public abstract class Pedido {
     protected final double monto;
     protected EstadoPedido estado;
     
-    Pedido(int id, String cliente, double monto){
+    public Pedido(int id, String cliente, double monto){
         this.id = id;
         this.cliente = cliente;
         this.monto = monto;
-        estado = PENDIENTE;
+        this.estado = EstadoPedido.PENDIENTE;
     }
 
     public int getId() {
@@ -45,7 +43,14 @@ public abstract class Pedido {
     public abstract double calcularCostoEnvio();
     public abstract String getTipo();
     
+    @Override
     public String toString(){
-        return "Pedido "+id+"["+getTipo()+", "+cliente+", $"+monto+", envio: $"+calcularCostoEnvio()+", "+estado+" - "+estado.getDescripcion()+"]";
+        return "Pedido " + id
+                + " [" + getTipo()
+                + ", cliente: " + cliente
+                + ", monto: $" + monto
+                + ", estado: " + estado + " - " + estado.getDescripcion()
+                + ", costo de envío: $" + calcularCostoEnvio()
+                + "]";
     }
 }

@@ -9,10 +9,9 @@ package pkgenum;
  * @author gaat1
  */
 public class CapacidadException extends Exception{
+    private static final long serialVersionUID = 1L;
 
     public CapacidadException(int capacidad) {
-        super("Capacidad maxima alcanzadaa( "+capacidad+" ) de pedidos.");
-        
+        super("Se alcanzó la capacidad máxima de " + capacidad + " pedidos.");
     }
-    
 }

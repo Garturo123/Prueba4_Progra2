@@ -33,28 +33,36 @@ public enum EstadoPedido {
         return descripcion;
     }
     
-    public boolean transicionarA(EstadoPedido nuevoEstado){
-        if(this.esFinal)
+    /**
+     * Indica si el pedido puede pasar de este estado al estado recibido.
+     *
+     * @param nuevoEstado estado al que se desea transicionar
+     * @return {@code true} si la transición está permitida
+     */
+    public boolean puedeTransicionarA(EstadoPedido nuevoEstado) {
+        if (esFinal || nuevoEstado == null) {
             return false;
-        boolean valido = false;
-        
+        }
+
         switch (this) {
             case PENDIENTE:
-                if(nuevoEstado==PROCESANDO || nuevoEstado == CANCELADO)
-                    valido = true;
-                break;
+                return nuevoEstado == PROCESANDO || nuevoEstado == CANCELADO;
             case PROCESANDO:
-                if(nuevoEstado==ENVIADO || nuevoEstado == CANCELADO)
-                    valido = true;
-                break;
+                return nuevoEstado == ENVIADO || nuevoEstado == CANCELADO;
             case ENVIADO:
-                if(nuevoEstado==ENTREGADO || nuevoEstado == CANCELADO)
-                    valido = true;
-                break;
+                return nuevoEstado == ENTREGADO;
             default:
-                valido=false;
-                break;
+                return false;
         }
-        return valido;
+    }
+
+    /**
+     * Conserva el nombre usado originalmente por el proyecto.
+     *
+     * @deprecated use {@link #puedeTransicionarA(EstadoPedido)}
+     */
+    @Deprecated
+    public boolean transicionarA(EstadoPedido nuevoEstado) {
+        return puedeTransicionarA(nuevoEstado);
     }
 }
