@@ -39,11 +39,10 @@ public abstract class Pedido {
     @Override
     public String toString(){
         return "Pedido " + id
-                + " [" + getTipo()
-                + ", cliente: " + cliente
-                + ", monto: $" + monto
-                + ", estado: " + estado + " - " + estado.getDescripcion()
-                + ", costo de envío: $" + calcularCostoEnvio()
-                + "]";
+                + "\n[" + getTipo()
+                + " cliente: " + cliente
+                + " monto: $" + monto
+                + "\nestado: " + estado + " - " + estado.getDescripcion()
+                + "\ncosto de envío: $" + calcularCostoEnvio()+ "]";
     }
 }
