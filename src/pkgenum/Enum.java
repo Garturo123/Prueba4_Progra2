@@ -2,9 +2,7 @@ package pkgenum;
 
 import java.util.Scanner;
 
-/**
- * Punto de entrada del sistema de gestión de pedidos.
- */
+
 public class Enum {
     private static final Scanner ENTRADA = new Scanner(System.in);
 
@@ -172,7 +170,7 @@ public class Enum {
                     return numero;
                 }
             } catch (NumberFormatException e) {
-                // El mensaje común se muestra después del bloque try/catch.
+                
             }
             System.out.println("Ingrese un número válido mayor o igual que cero.");
         }
